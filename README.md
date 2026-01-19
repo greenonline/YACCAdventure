@@ -1,7 +1,3 @@
-# YACCAdventure
-Text adventure in yacc and lex
-
-
 # Using `yacc` and `lex` for a text adventure
 ## Or... "How I learned to love parsers"
 
@@ -70,7 +66,7 @@ N.B. I may not have got some things correct, or I might be doing some other thin
    - Fixes "stab Thorin" and "stab Thorin to death"
 9. "help"
 10. "look" and "kill"
-11. crash on syntax error, unknown
+11. Crash on syntax error, i.e. unknown word
     - does not work correctly
 12. "quit"
 13. "knife"
@@ -119,7 +115,6 @@ help
 	Verbs:
 		get | take
 		give
-		bum
 		stab
 		look
 		kill
@@ -152,7 +147,7 @@ Here is a screenshot of some interactions:
 
 ## Gotchas
 
-Using `yacc` and `lex` may seem daunting, but once it is set up, it really is ratherintuitive and easy. However, it is the "setting up" that is a horrific nightmare, for the novice.
+Using `yacc` and `lex` may seem daunting, but once it is set up, it really is rather intuitive and easy. However, it is the "setting up" that is a horrific nightmare, for the novice.
 
 The following points I, personally, found to be "sticking points" that caused some confusion:
 
@@ -162,5 +157,3 @@ The following points I, personally, found to be "sticking points" that caused so
 
   [1]: xtras/images/spectrum-hobbit-goblin-dungeon.png "The goblin dungeon"
   [2]: xtras/images/examplethorin.png "Screenshot of interaction"
-
-
