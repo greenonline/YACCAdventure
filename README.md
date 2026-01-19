@@ -137,7 +137,6 @@ help
 	Meta Commands:
 		help
 		quit
-
 ```
 
 Here is a screenshot of some interactions:
