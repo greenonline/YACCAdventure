@@ -54,37 +54,38 @@ N.B. I may not have got some things correct, or I might be doing some other thin
 
 ## The code increments
 
-1. "give key to thorin" 
-2. "give 10 gold pieces to thorin" 
-3. "give 10 gold pieces to Thorin" 
-4. "give 10 gold pieces to Thorin and then give key to Gandalf" 
-5. "stab Thorin"
+1. Accept "give key to thorin" 
+2. Accept "give 10 gold pieces to thorin" 
+3. Accept "give 10 gold pieces to Thorin" 
+4. Accept "give 10 gold pieces to Thorin and then give key to Gandalf" 
+5. Accept "stab Thorin"
 6. Use left recursion to save memory
    - `commands command TOKAND TOKTHEN`
-7. "get "or "take" (`get|take`)
-8. newline, i.e. `TOKEND`
+7. Added "get "or "take" (`get|take`)
+8. Recognise newline, i.e. `TOKEND`
    - Fixes "stab Thorin" and "stab Thorin to death"
-9. "help"
-10. "look" and "kill"
+9. Added "help"
+10. Added "look" and "kill"
 11. Crash on syntax error, i.e. unknown word
     - does not work correctly
-12. "quit"
-13. "knife"
+12. Added "quit"
+13. Added "knife"
     - unknown removed
-14. "to death" and "pick up"
+14. Added "to death" and "pick up"
     - with a space between
-15. Hack, re-call `yyparse()` in `yyerror()`
+15. Restart automatically on unknown
+    - Hack, re-call `yyparse()` in `yyerror()`
 16. Recognise unknown verb
 17. Restart automatically on unknown
     - `while(1){yyparse()};`
 18. Recognise "take unknown_noun"
     - `extern YYSTYPE yylval;` added to `lex.l`
 19. Recognise "give unknown_noun"
-20. "give Gandalf key"
+20. Added "give Gandalf key"
     - `TOKGIVE CHAR_NAME TOKITEM`
-21. "give Gandalf the key" 
+21. Added "give Gandalf the key" 
     - `TOKGIVE CHAR_NAME TOKTHE TOKITEM`
-22. "give Gandalf 10"
+22. Added "give Gandalf 10"
     - `TOKGIVE CHAR_NAME NUMBER`
 
 
@@ -137,6 +138,7 @@ help
 	Meta Commands:
 		help
 		quit
+
 ```
 
 Here is a screenshot of some interactions:
