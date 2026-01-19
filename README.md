@@ -29,6 +29,11 @@ That whole page really is a joke. Quite unbelievable
 
 The [Lex and YACC primer/HOWTO](https://berthub.eu/lex-yacc/cvs/lexyacc.pdf) provides a heating controller example. It is from that same example that I developed these grammar rules.
 
+The objective was to re-create (at least, to some extent) the scene from the game "The Hobbit" that I used to play on a Speccy, years and years ago:
+
+[![The goblin dungeon][1]][1]
+
+
 ## What this isn't
 
 ### A tutorial
@@ -61,7 +66,7 @@ N.B. I may not have got some things correct, or I might be doing some other thin
 6. Use left recursion to save memory
    - `commands command TOKAND TOKTHEN`
 7. "get "or "take" (`get|take`)
-8. newline TOKEND
+8. newline, i.e. `TOKEND`
    - Fixes "stab Thorin" and "stab Thorin to death"
 9. "help"
 10. "look" and "kill"
@@ -100,7 +105,50 @@ gcc -o examplethorin y.tab.c
 
 However, I have also provided a `make` file, so you can just type `make`. 
 
+Then run the executable, with `./examplethorin`.
+
 N.B. Typing `make clean` will tidy up the directory and remove any generated files, including the binary.
+
+## Getting started
+
+Once the executable has launched, type `help`:
+
+```none
+% ./examplethorin 
+help
+	Verbs:
+		get | take
+		give
+		bum
+		stab
+		look
+		kill
+	Nouns:
+		key
+		gold
+		knife
+	Numbers:
+		0 - 9
+	Actors:
+		Thorin
+	Proper names:
+		Word beginning with a capital letter
+		i.e. Gandalf, Gimli
+	Misc (prepositions, conjunctions, coordinates, articles):
+		to
+		and
+		then
+		the
+	Meta Commands:
+		help
+		quit
+
+```
+
+Here is a screenshot of some interactions:
+
+[![Screenshot of interaction][2]][2]
+
 
 ## Gotchas
 
@@ -109,5 +157,10 @@ Using `yacc` and `lex` may seem daunting, but once it is set up, it really is ra
 The following points I, personally, found to be "sticking points" that caused some confusion:
 
 1. Put `#include "lex.yy.c"` at the bottom of the `yacc` grammar file, `examplethorin.y`, after the last pair of `%%`
+
+
+
+  [1]: xtras/images/spectrum-hobbit-goblin-dungeon.png "The goblin dungeon"
+  [2]: xtras/images/examplethorin.png "Screenshot of interaction"
 
 
