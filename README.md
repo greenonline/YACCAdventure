@@ -11,7 +11,7 @@ After following the excellent [How to program a text adventure in C](https://hel
 
 So, I thought I'd give it a go.
 
-After looking at a number of "guides", I settled on [Lex and YACC primer/HOWTO](https://berthub.eu/lex-yacc/cvs/lexyacc.pdf). This really is an excellent guide, with perfect examples.
+After looking at a number of "guides", I settled on [Lex and YACC primer/HOWTO](https://berthub.eu/lex-yacc/cvs/lexyacc.pdf), by Bert Hubert. This really is an excellent guide, with perfect examples. I have included a copy of it in `xtras/PDF/`.
 
 ---
 
@@ -36,7 +36,7 @@ The objective was to re-create (at least, to some extent) the scene from the gam
 
 This never started out as, and isn't meant to be, a tutorial. I just keep on improving the `yacc`/`lex` files and making "save points", along the way, of the working code. It then dawned on me that the code increments were similar to [How to program a text adventure in C](https://helderman.github.io/htpataic/htpataic01.html), and so I thought that I would post these increments to a repo, so that they might serve as a useful example to someone.
 
-I will leave it to you, dear reader, to check the `diff` between the various versions in order to see what changed. See? I told you it wasn't a tutorial. Lazy...
+I will leave it to you, dear Reader, to check the `diff` between the various versions in order to see what changed. See? I told you it wasn't a tutorial. Lazy...
 
 ### A game
 
@@ -145,6 +145,21 @@ Here is a screenshot of some interactions:
 
 [![Screenshot of interaction][2]][2]
 
+### Known issues
+
+Some of the features are rather rough. For example:
+
+ - "give Gandalf 10"
+   - 10 what? You currently don't, or can't, specify gold pieces, silver pieces or what-have-you.
+ - 'pick gold up"
+   - You can not split the infinitive, yet.
+ - "give key to Gandlaf"
+   - Proper names, other than Thorin's, are not checked against any list of valid names, nor valid spelling. 
+   - Gandalf isn't even here, even if you spell the name correctly.
+ - Lack of prepositions
+   - You can't stab Thorin *in* the eye, nor put the key *under* the knife, yet.
+
+However, this is just to get you started. You can polish it off, in your own styling, dear Reader.
 
 ## Gotchas
 
