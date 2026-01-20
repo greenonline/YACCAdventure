@@ -23,7 +23,7 @@ That whole page really is a joke. Quite unbelievable
 
 ---
 
-The [Lex and YACC primer/HOWTO](https://berthub.eu/lex-yacc/cvs/lexyacc.pdf) provides a heating controller example. It is from that same example that I developed these grammar rules.
+The [Lex and YACC primer/HOWTO](https://berthub.eu/lex-yacc/cvs/lexyacc.pdf) ([HTML format](https://tldp.org/HOWTO/Lex-YACC-HOWTO.html)) provides a heating controller example. It is from that same example that I developed these grammar rules.
 
 The objective was to re-create (at least, to some extent) the scene from the game "The Hobbit" that I used to play on a Speccy, years and years ago:
 
@@ -87,6 +87,10 @@ N.B. I may not have got some things correct, or I might be doing some other thin
     - `TOKGIVE CHAR_NAME TOKTHE TOKITEM`
 22. Added "give Gandalf 10"
     - `TOKGIVE CHAR_NAME NUMBER`
+23. Added "gold coins" for "take"
+24. Added "gold coins" for "give"
+25. Added auto-test in Makefile. 
+    - Also, fixed "to death" for "stab"
 
 
 
@@ -151,6 +155,7 @@ Some of the features are rather rough. For example:
 
  - "give Gandalf 10"
    - 10 what? You currently don't, or can't, specify gold pieces, silver pieces or what-have-you.
+   - As of v.23/v.24, you can now enter "give Gandalf 10 gold coins"
  - 'pick gold up"
    - You can not split the infinitive, yet.
  - "give key to Gandlaf"
@@ -158,6 +163,7 @@ Some of the features are rather rough. For example:
    - Gandalf isn't even here, even if you spell the name correctly.
  - Lack of prepositions
    - You can't stab Thorin *in* the eye, nor put the key *under* the knife, yet.
+ - Inconsistant syntax error messages
 
 However, this is just to get you started. You can polish it off, in your own styling, dear Reader.
 
@@ -170,12 +176,9 @@ The following points I, personally, found to be "sticking points" that caused so
 1. Put `#include "lex.yy.c"` at the bottom of the `yacc` grammar file, `examplethorin.y`, after the last pair of `%%`
 
 
-
 ## More notes
 
 The very rough notes that I took whilst developing the grammar can be found here: [Yacc_Lex_Notes](xtras/MD/Yacc_Lex_Notes.md)
-
-
 
   [1]: xtras/images/spectrum-hobbit-goblin-dungeon.png "The goblin dungeon"
   [2]: xtras/images/examplethorin.png "Screenshot of interaction"
