@@ -1,3 +1,35 @@
+	Verbs:
+		get | take | pick up
+		give
+		stab
+		look
+		kill
+	Nouns:
+		key
+		gold
+		knife
+		gold | silver | copper coin[s]
+	Numbers:
+		0 - 9
+	Actors:
+		Thorin
+	Proper names:
+		Word beginning with a capital letter
+		i.e. Gandalf, Gimli
+	Misc (prepositions, conjunctions, coordinates, articles):
+		to
+		and
+		then
+		the
+	Adjectives:
+		gold
+		silver
+		copper
+	Adverbs:
+		to death
+	Meta Commands:
+		help
+		quit
 	You are in a small cave, with a locked door
 	You see:
 		Thorin
@@ -7,11 +39,25 @@
 		A knife
 	You take the knife
 	You take the gold
+	You take the key
+	You take the knife
+	You take the gold
+	You take the key
+	You take the knife
+	You take the gold
+	You take the key
 	You give the gold to Gandalf
+	You give 10 gold pieces to Gandalf
+	You give 10 gold pieces to Gandalf
+	You give 10 gold pieces to Gandalf
+	You give 10 gold pieces to Gandalf
+	You give the key to Gimli
+	You give the key to Gimli
 	You stabbed Thorin...
 	You stabbed Thorin...
 	You give 10 gold pieces to Gandalf
 	You stabbed Thorin to death!
 	You stabbed Thorin to death!
 	You give 10 gold pieces to Gandalf
+	You stabbed Thorin to death!
 	Going already?
