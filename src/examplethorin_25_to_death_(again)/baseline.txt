@@ -1,0 +1,17 @@
+	You are in a small cave, with a locked door
+	You see:
+		Thorin
+		A pile of gold coins
+		A key
+		A lump of gold
+		A knife
+	You take the knife
+	You take the gold
+	You give the gold to Gandalf
+	You stabbed Thorin...
+	You stabbed Thorin...
+	You give 10 gold pieces to Gandalf
+	You stabbed Thorin to death!
+	You stabbed Thorin to death!
+	You give 10 gold pieces to Gandalf
+	Going already?

@@ -1,0 +1,9 @@
+look
+take knife
+take gold
+give Gandalf the gold
+stab Thorin
+stab Thorin and give Gandalf 10
+stab Thorin to death
+stab Thorin to death and give Gandalf 10
+quit
