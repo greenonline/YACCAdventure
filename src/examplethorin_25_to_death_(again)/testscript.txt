@@ -1,9 +1,24 @@
+help
 look
 take knife
 take gold
+take key
+get knife
+get gold
+get key
+pick up knife
+pick up gold
+pick up key
 give Gandalf the gold
+give Gandalf 10
+give Gandalf 10 coins
+give Gandalf 10 gold coins
+give 10 gold coins to Gandalf
+give Gimli key
+give key to Gimli
 stab Thorin
 stab Thorin and give Gandalf 10
 stab Thorin to death
 stab Thorin to death and give Gandalf 10
+kill Thorin
 quit
