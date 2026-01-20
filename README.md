@@ -171,5 +171,11 @@ The following points I, personally, found to be "sticking points" that caused so
 
 
 
+## More notes
+
+The very rough notes that I took whilst developing the grammar can be found here: [Yacc_Lex_Notes](xtras/MD/Yacc_Lex_Notes.md)
+
+
+
   [1]: xtras/images/spectrum-hobbit-goblin-dungeon.png "The goblin dungeon"
   [2]: xtras/images/examplethorin.png "Screenshot of interaction"
