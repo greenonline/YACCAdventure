@@ -161,6 +161,7 @@ The problem seems to be that the code examples on the IBM tutorial page are miss
  - [Lex and YACC primer/HOWTO](https://berthub.eu/lex-yacc/cvs/lexyacc.pdf) 
    - page 7, similar to IBM example, but much better
    - returning tokens
+   - [HTML](https://tldp.org/HOWTO/Lex-YACC-HOWTO.html)
  - [Adding Languages to Game Engines](https://www.gamedeveloper.com/programming/adding-languages-to-game-engines)
    - Interesting, but the links to `yacc` and `lex` specs for a game are dead.
  - [Debugging](https://www.cs.man.ac.uk/~pjj/cs2121/debug.html)
@@ -379,19 +380,28 @@ Run: `gcc -o exampleCtest y.tab.c`
 
 ## Thorin example
 
- - I have a "give key to thorin" yacc example..! ExampleThorin1
- - I have a "give 10 gold pieces to thorin" yacc example..! ExampleThorin2
- - I have a "give 10 gold pieces to Thorin" yacc example..! ExampleThorin3
- - I have a "give 10 gold pieces to Thorin and then give key to Gandalf" yacc example..! ExampleThorin4
+ - I have a "give key to thorin" yacc example..! 
+   - ExampleThorin1
+ - I have a "give 10 gold pieces to thorin" yacc example..!
+   - ExampleThorin2
+ - I have a "give 10 gold pieces to Thorin" yacc example..!
+   - ExampleThorin3
+ - I have a "give 10 gold pieces to Thorin and then give key to Gandalf" yacc example..!
+   - ExampleThorin4
 
+How to do both int and string in yacc
 
+ - DONE! Use `union`
 
-How to do both int and string in yacc - DONE! Use `union`
+Use left recursion to save memory: `commands command TOKAND TOKTHEN`
 
-Use left recursion to save memory `commands command TOKAND TOKTHEN` ExampleThorin6
+ - DONE! ExampleThorin6
 
+How to do partial matches and what is the precedence? 
 
-How to do partial matches and what is the precedence? i.e. "talk Thorin" and "talk Thorin to death" ExampleThorin5, DONE in ExampleThorin8, use the \n
+ - i.e. "talk Thorin" and "talk Thorin to death"
+   - semi DONE in ExampleThorin5, 
+ - DONE in ExampleThorin8, use the `\n`.
 
 [Writing lex Source](https://docs.oracle.com/cd/E19504-01/802-5880/6i9k05dgk/index.html) - meh
 
@@ -400,8 +410,13 @@ How to do partial matches and what is the precedence? i.e. "talk Thorin" and "ta
 newline TOKEND ExampleThorin8
 
 How to do "pick up" with the space? And "to death" with the space?
+
  - {B} [Writing lex Source](https://docs.oracle.com/cd/E19504-01/802-5880/6i9k05dgk/index.html)
-Why crash on syntax error? - DONE! ExampleThorin11
+
+Why crash on syntax error?
+ - DONE! ExampleThorin11
+
+More new features:
 
  - help and stab ExampleThorin9
  - look and kill ExampleThorin10
@@ -444,7 +459,8 @@ or
  "verb noun to noun"
 ```
 
- - so check for noun unknown, must do it. - DONE ExampleThorin19
+ - so check for noun unknown, must do it.
+   - DONE ExampleThorin19
 
 Different outputs for verb and noun:
 
@@ -459,13 +475,107 @@ Generate yacc and lex from JSON?
 
 How to check for "give gandalf [the] key"?
 
- - TOKGIVE CHAR_NAME TOKITEM - DONE! ExampleThorin20
- - TOKGIVE CHAR_NAME TOKTHE TOKITEM - DONE! ExampleThorin21
+ - TOKGIVE CHAR_NAME TOKITEM 
+   - DONE! ExampleThorin20
+ - TOKGIVE CHAR_NAME TOKTHE TOKITEM
+   - DONE! ExampleThorin21
  - Added "the" - ExampleThorin21
 
 Give gandalf 10 ExampleThorin22
 
-Makefile - DONE!
+Makefile
+
+ - DONE! ExampleThorin22 (and previous)
+
+[Gold] Coins:
+
+ - DONE! for "take" ExampleThorin23
+ - DONE! for "give" ExampleThorin24
+
+ - Give Gandalf 10 coins 
+ - Give Gandalf 10 gold coins
+
+```none
+coin[s]? return TOKCOIN;
+gp|gc|gold{B}+coin[s]?|gold{B}+piece[s]? return TOKGOLDCOIN;
+sp|sc|silver{B}+coin[s]?|silver{B}+piece[s]? return TOKSILVERCOIN;
+cp|cc|copper{B}+coin[s]?|copper{B}+piece[s]? return TOKCOPPERCOIN;
+```
+
+You can still just give a number and it defautls to gold coins
+ - Is that correct or should it say "what (type of) coins?"
+
+Use {B}+ in case of extra spaces 
+
+ - To be more forgiving to bad input
+ - DONE! ExampleThorin24
+
+Add gold to the "look" description
+
+ - To give the user a clue to use the word
+ - DONE! ExampleThorin24
+
+Update the neglected help
+
+ - Added gold, silver, copper, to death, pick up
+ - DONE! ExampleThorin24
+
+Lost "to death" in v.24/25
+ - DONE! ExampleThorin25
+
+
+```none
+stab Thorin
+	You stabbed Thorin...
+stab Thorin and give Gandalf 10
+	You stabbed Thorin...
+	You give 10 gold pieces to Gandalf
+stab Thorin to death
+	You stabbed Thorin...
+I don't know how to do that
+I don't know how to do that
+stab Thorin to death and give Gandalf 10
+	You stabbed Thorin...
+I don't know how to do that
+I don't know how to do that
+	You give 10 gold pieces to Gandalf
+```
+
+Reason: 
+
+```none
+TOKSTAB TOKTHORIN TOKTO TOKDEATH
+
+vs
+
+TOKSTAB TOKTHORIN TOKTODEATH
+```
+
+Test for make
+
+ - DONE! ExampleThorin25
+
+
+```none
+success.txt: examplethorin testscript.txt baseline.txt
+	cat testfile | ./examplethorin > transcript.txt
+	cmp baseline.txt transcript.txt
+	mv -f transcript.txt success.txt
+	```
+
+For `make clean`, I get
+
+```none
+rm: ‑f: No such file or directory
+```
+
+See [Commandline arguments in Mac OSX](https://superuser.com/q/743147/399707), but I don't have bad ordering:
+
+```none
+		$(RM) ‑f  $(PROGRAM) y.* lex.yy.* $(SUCCESS)
+```
+
+Very strange. One possible explanation [zw963/rm.sh](https://gist.github.com/zw963/86856784d0e9e2d83d64f4480ce0adf4)???
 
 ## TODO
 
@@ -473,10 +583,76 @@ Makefile - DONE!
  - Stab Thorin in the eye
  - Put knife in Thorin's eye
  - Testscript?
+   - Input is not echoed. 
+   - example binary does not accept file as input argument
+     - Would need `getInput()` from [Ch16](https://helderman.github.io/htpataic/htpataic16.html)
+       - This also provides logging
+       - Maybe use a #include in examplethorin.y? Or in the `.y` header?
+       - Probably more trouble than worth, just `cat testfile | ./examplethorin`
 
-Also:
+```none
+static bool getInput(const char *filename)
+{
+   static FILE *fp = NULL;
+   bool ok;
+   if (fp == NULL)
+   {
+      if (filename != NULL) fp = fopen(filename, "rt");
+      if (fp == NULL) fp = stdin;
+   }
+   else if (fp == stdin && filename != NULL)
+   {
+      FILE *out = fopen(filename, "at");
+      if (out != NULL)
+      {
+         fprintf(out, "%s\n", input);
+         fclose(out);
+      }
+   }
+   printf("\n--> ");
+   ok = getFromFP(fp);
+   if (fp != stdin)
+   {
+      if (ok)
+      {
+         printf("%s\n", input);
+      }
+      else
+      {
+         fclose(fp);
+         ok = getFromFP(fp = stdin);
+      }
+   }
+   return ok;
+}
+```
 
- - Give Gandalf 10 coins 
- - Give Gandalf 10 gold coins
+But we would need to specify the input to `yyparse()`. See [How to use yyparse() of bison somewhere else?](https://stackoverflow.com/q/37338151/4424636)
+
+```none
+yrestart(FILE * input_file)
+yy_scan_string(const char * string)
+yy_scan_buffer(const char * buffer, size_t size)
+```
 
 
+Note that `bison` can take a `fp` as an arg in `yyyparse()` (but not `yacc`???), see [Yacc: using a file pointer in the yyparse() method](https://stackoverflow.com/q/29065021/4424636)
+
+ - [The `yacc` environment](https://docs.oracle.com/cd/E19504-01/802-5880/6i9k05dh5/index.html)
+
+ - [What is the difference between Flex/Lex and Yacc/Bison?](https://stackoverflow.com/q/623503/4424636)
+
+This seems way more hassle that it is worth.
+
+
+Need to add silver coins and copper coins matching/handling
+
+ - Can we simplify by just having TOKCOINS return the type of preceding metal?
+
+  ```none
+  gold|silver|copper{B}+coin[s]?     yylval.string=strdup(yytext); return TOKCOIN;
+  ```
+
+ - Maybe just turn it into an item?
+   - Maybe it can't be done, due to the "number"
+   
