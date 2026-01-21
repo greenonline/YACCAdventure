@@ -91,6 +91,8 @@ N.B. I may not have got some things correct, or I might be doing some other thin
 24. Added "gold coins" for "give"
 25. Added auto-test in Makefile. 
     - Also, fixed "to death" for "stab"
+26. Added "pick <item> up"
+    - Split infinitive
 
 
 
@@ -158,12 +160,13 @@ Some of the features are rather rough. For example:
    - As of v.23/v.24, you can now enter "give Gandalf 10 gold coins"
  - 'pick gold up"
    - You can not split the infinitive, yet.
+   - As of v.26, you can now enter "pick 10 gold coins up", "pick key up"
  - "give key to Gandlaf"
    - Proper names, other than Thorin's, are not checked against any list of valid names, nor valid spelling. 
    - Gandalf isn't even here, even if you spell the name correctly.
  - Lack of prepositions
    - You can't stab Thorin *in* the eye, nor put the key *under* the knife, yet.
- - Inconsistant syntax error messages
+ - Inconsistant, or apparent duplicate, syntax error messages
 
 However, this is just to get you started. You can polish it off, in your own styling, dear Reader.
 
