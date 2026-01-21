@@ -551,6 +551,8 @@ vs
 TOKSTAB TOKTHORIN TOKTODEATH
 ```
 
+See [Creating comments in Lex and Yacc](https://stackoverflow.com/q/37266322/4424636)
+
 Test for make
 
  - DONE! ExampleThorin25
@@ -577,9 +579,16 @@ See [Commandline arguments in Mac OSX](https://superuser.com/q/743147/399707), b
 
 Very strange. One possible explanation [zw963/rm.sh](https://gist.github.com/zw963/86856784d0e9e2d83d64f4480ce0adf4)???
 
+[what is the difference between 'make after make clean' and just 'make'?](https://stackoverflow.com/q/25051500/4424636)
+
+Split the infinitive, "pick 10 up", "pick key up".
+
+ - DONE! ExampleThorin26
+
+
+
 ## TODO
 
- - Split the infinitive, pick 10 up, pick key up.
  - Stab Thorin in the eye
  - Put knife in Thorin's eye
  - Testscript?
@@ -656,3 +665,12 @@ Need to add silver coins and copper coins matching/handling
  - Maybe just turn it into an item?
    - Maybe it can't be done, due to the "number"
    
+
+
+## Other links
+
+This a yacc related, not sure if they were useful though:
+
+ - [Using only string with Flex/Bison](https://stackoverflow.com/q/43125576/4424636)
+ - [flex Regular expression question about bad character](https://stackoverflow.com/q/71211199/4424636)
+   - [flex - Patterns](https://westes.github.io/flex/manual/Patterns.html)
