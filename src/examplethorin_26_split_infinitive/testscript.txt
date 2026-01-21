@@ -3,6 +3,15 @@ look
 take knife
 take gold
 take key
+take 10
+take 10 coins
+take 10 gold coins
+pick knife up
+pick gold up
+pick key up
+pick 10 up
+pick 10 coins up
+pick 10 gold coins up
 get knife
 get gold
 get key
