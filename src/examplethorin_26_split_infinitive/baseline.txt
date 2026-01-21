@@ -40,6 +40,15 @@
 	You take the knife
 	You take the gold
 	You take the key
+	You take 10 gold coins
+	You take 10 gold coins
+	You take 10 gold coins
+	You take the knife
+	You take the gold
+	You take the key
+	You take 10 gold coins
+	You take 10 gold coins
+	You take 10 gold coins
 	You take the knife
 	You take the gold
 	You take the key
