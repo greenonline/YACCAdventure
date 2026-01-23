@@ -43,7 +43,7 @@ I will leave it to you, dear Reader, to check the `diff` between the various ver
 There is no gameplay:
 
  - You can kill Thorin as many times as you want. 
- - You can take as much gold coins as you wish. 
+ - You can take as many gold coins as you wish. 
  -  You can continually pick up the key, and yet it will still be there on the floor, and not in your possession. 
 
 There are no limits... therefore no game.
